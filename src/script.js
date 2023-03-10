@@ -105,6 +105,18 @@ function storeWin(rod, score) {
 
 }
 
+function collide(ball, rod) {
+  const ballRect = ball.getBoundingClientRect();
+
+  if (
+    ballRect.top <= rodRect.bottom &&
+    ballRect.bottom >= rodRect.top &&
+    ballRect.left <= rodRect.right &&
+    ballRect.right >= rodRect.left
+  ) {
+    ball.classList.add('ball-hit');
+  }
+}
 
   
 
