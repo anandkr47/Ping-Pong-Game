@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    
+    
+    <script>
+      function displayAlert(message) {
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+
+        // Create message element
+        const messageEl = document.createElement('p');
+        messageEl.innerText = message;
+        modal.appendChild(messageEl);
+
+        // Position modal in center of screen
+        modal.style.top = (window.innerHeight - modal.offsetHeight) / 2 + 'px';
+        modal.style.left = (window.innerWidth - modal.offsetWidth) / 2 + 'px';
+
+        // Append modal to body
+        document.body.appendChild(modal);
+
+        // Remove modal after 3 seconds
+        setTimeout(function() {
+          modal.remove();
+        }, 3000);
+      }
+
+      const playBtn = document.getElementById('play-btn');
+      playBtn.addEventListener('click', function() {
+        const rod = 'Player 1';
+        const score = 0.75;
+        const maxScore = 1;
+        displayAlert(rod + " wins with a score of " + (score * 100) + "%. Max score is: " + (maxScore * 100) + "%.");
+      });
+    </script>
+    <div id="container">
+
+        <div id="ball"></div>
+        <div id="rod1">Player1</div>
+        <div id="rod2">Player2</div>
+        <h1>Welcome to My Game</h1>
+        <p>Click the button to play!</p>
+        <button id="play-btn">Play</button>
+        <p id="max-score"></p>
+
+    </div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <div class="context">
+        
+    </div>
+
+
+
+    <script src="./src/script.js"></script>
+    
+</body>
+</html>
