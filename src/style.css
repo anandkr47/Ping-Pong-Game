@@ -252,6 +252,7 @@ body {
 }
 
 #play-btn:hover {
+  background-color:yellow;
   transform: translateY(-5px);
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 }
