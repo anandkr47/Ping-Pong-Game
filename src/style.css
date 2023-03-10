@@ -122,6 +122,49 @@ body {
     top: 50%;
     animation-delay: 10s;
   }
+
+/* Bubble 7 */
+.bubble:nth-child(7) {
+  width: 45px;
+  height: 45px;
+  left: 20%;
+  top: 20%;
+  animation-delay: 1.5s;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Bubble 8 */
+.bubble:nth-child(8) {
+  width: 55px;
+  height: 55px;
+  left: 60%;
+  top: 60%;
+  animation-delay: 0.7s;
+  animation-duration: 3.5s;
+  animation-timing-function: ease-in-out;
+}
+/* Bubble 9 */
+.bubble:nth-child(9) {
+  width: 65px;
+  height: 65px;
+  left: 80%;
+  top: 20%;
+  animation-delay: 1.2s;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Bubble 10 */
+.bubble:nth-child(10) {
+  width: 35px;
+  height: 35px;
+  left: 30%;
+  top: 60%;
+  animation-delay: 0.3s;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
   
   @keyframes bubble {
     0% {
