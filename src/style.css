@@ -199,21 +199,31 @@ body {
     z-index: 9999;
   }
   /* Play button hover effect */
-#play-btn:hover {
-  background-color: #7CFC00; /* Change to your desired hover color */
-  cursor: pointer;
-}
 #play-btn {
-  width: 150px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ccc;
-  background-image: url('play-icon.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60%;
-  font-size: large;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
+
+#play-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+#play-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Alert styles */
 .modal {
   position: fixed;
