@@ -9,39 +9,95 @@
 </head>
 <body>
     
-    
-    <script>
-      function displayAlert(message) {
-        // Create modal element
-        const modal = document.createElement('div');
-        modal.className = 'modal';
+   <script>
+    function displayAlert(message) {
+      // Create modal element
+      const modal = document.createElement('div');
+      modal.className = 'modal';
 
-        // Create message element
-        const messageEl = document.createElement('p');
-        messageEl.innerText = message;
-        modal.appendChild(messageEl);
+      // Create message element
+      const messageEl = document.createElement('p');
+      messageEl.innerText = message;
+      modal.appendChild(messageEl);
 
-        // Position modal in center of screen
-        modal.style.top = (window.innerHeight - modal.offsetHeight) / 2 + 'px';
-        modal.style.left = (window.innerWidth - modal.offsetWidth) / 2 + 'px';
+      // Position modal in center of screen
+      modal.style.top = (window.innerHeight - modal.offsetHeight) / 2 + 'px';
+      modal.style.left = (window.innerWidth - modal.offsetWidth) / 2 + 'px';
 
-        // Append modal to body
-        document.body.appendChild(modal);
+      // Append modal to body
+      document.body.appendChild(modal);
 
-        // Remove modal after 3 seconds
-        setTimeout(function() {
-          modal.remove();
-        }, 3000);
+      // Remove modal after 3 seconds
+      setTimeout(function() {
+        modal.remove();
+      }, 3000);
+    }
+
+    const playBtn = document.getElementById('play-btn');
+    playBtn.addEventListener('click', function() {
+      const rod = 'Player 1';
+      const score = 0.75;
+      const maxScore = 1;
+      displayAlert(rod + " wins with a score of " + (score * 100) + "%. Max score is: " + (maxScore * 100) + "%.");
+    });
+
+    const rod1 = document.getElementById('rod1');
+    const rod2 = document.getElementById('rod2');
+
+    function moveRodLeft() {
+      const rodSpeed = 25;
+      const rodRect = rod1.getBoundingClientRect();
+      if (rodRect.x > 0) {
+        rod1.style.left = (rodRect.x) - rodSpeed + 'px';
+        rod2.style.left = rod1.style.left;
       }
+    }
 
-      const playBtn = document.getElementById('play-btn');
-      playBtn.addEventListener('click', function() {
-        const rod = 'Player 1';
-        const score = 0.75;
-        const maxScore = 1;
-        displayAlert(rod + " wins with a score of " + (score * 100) + "%. Max score is: " + (maxScore * 100) + "%.");
-      });
-    </script>
+    function moveRodRight() {
+      const rodSpeed = 25;
+      const rodRect = rod1.getBoundingClientRect();
+      if ((rodRect.x + rodRect.width) < window.innerWidth) {
+        rod1.style.left = (rodRect.x) + rodSpeed + 'px';
+        rod2.style.left = rod1.style.left;
+      }
+    }
+
+    // Move rods on mouse and touch events
+    document.addEventListener('mousedown', function(event) {
+      if (event.clientX < (window.innerWidth / 2)) {
+        moveRodLeft();
+      } else {
+        moveRodRight();
+      }
+    });
+
+    document.addEventListener('touchstart', function(event) {
+      const touchX = event.touches[0].clientX;
+      if (touchX < (window.innerWidth / 2)) {
+        moveRodLeft();
+      } else {
+        moveRodRight();
+      }
+    });
+
+    document.addEventListener('mousemove', function(event) {
+      if (event.clientX < (window.innerWidth / 2)) {
+        moveRodLeft();
+      } else {
+        moveRodRight();
+      }
+    });
+
+    document.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+      const touchX = event.touches[0].clientX;
+      if (touchX < (window.innerWidth / 2)) {
+        moveRodLeft();
+      } else {
+        moveRodRight();
+      }
+    });
+  </script>
     <div id="container">
 
         <div id="ball"></div>
