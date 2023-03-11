@@ -118,6 +118,23 @@ function collide(ball, rod) {
   }
 }
 
+   window.addEventListener('click', function(event) {
+    let rodSpeed = 25;
+    let clickX = event.clientX;
+  
+    // Check if click is not on the play button
+    if (!event.target.matches('#play-btn')) {
+      let rodRect = rod1.getBoundingClientRect();
+  
+      if (clickX < (window.innerWidth / 2) && rodRect.x > 0) {
+        rod1.style.left = (rodRect.x) - rodSpeed + 'px';
+        rod2.style.left = rod1.style.left;
+      } else if (clickX > (window.innerWidth / 2) && ((rodRect.x + rodRect.width) < window.innerWidth)) {
+        rod1.style.left = (rodRect.x) + rodSpeed + 'px';
+        rod2.style.left = rod1.style.left;
+      }
+    }
+  });
   
 
 
